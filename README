@@ -1,0 +1,28 @@
+python requirements:
+pip install djangorestframework
+pip install django-filter 
+
+
+In root dir : 
+
+	migrate db after update:
+	python manage.py makemigrations appname 
+	python manage.py migrate
+
+
+	run server : 
+	python manage.py runserver
+
+
+
+NOTE: it is a good idea to disable the browseable API in production with this configuration:
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    )
+}
+
+
+
+
