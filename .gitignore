@@ -1,0 +1,12 @@
+/frontend/node_modules/
+/frontend/package-lock.json
+/frontend/__init__.py
+/frontend/migrations/
+/histProject/__init__.py
+/restApiServer/migrations/
+/restApiServer/__init__.py
+.python-version
+/frontend/static/
+/frontend/yarn.lock
+/**/__pycache__
+/**/.DS_STORE
