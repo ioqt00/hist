@@ -1,8 +1,6 @@
 from rest_framework import serializers
 from .models import Doc
 
-import django_filters
-
 
 class DocSerializer(serializers.ModelSerializer):
 	class Meta:
