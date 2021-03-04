@@ -25,7 +25,7 @@ class App extends Component {
 			container: this.mapContainer,
 			style: 'mapbox://styles/mapbox/streets-v11',
 			center: [this.state.lng, this.state.lat],
-			zoom: this.state.zoom
+			zoom: this.state.zoom,
 		})
 
 		fetch('api/docs')
@@ -50,7 +50,13 @@ class App extends Component {
 	render() {
 		return (
 			<>
-				<div ref={el => this.mapContainer = el} className={styles.mapContainer}></div>
+				<div className="content-container">
+					<div className="search">
+						<input type="text" className="search__input" placeholder="Search for any article"></input>
+						<i className="material-icons-round search__icon">search</i>
+					</div>
+				</div>
+				<div ref={el => this.mapContainer = el} className="mapContainer"></div>
 			</>
 		)
 	}

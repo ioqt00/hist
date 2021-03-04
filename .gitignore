@@ -6,7 +6,7 @@
 /restApiServer/migrations/
 /restApiServer/__init__.py
 .python-version
-/frontend/static/
+/frontend/static/frontend
 /frontend/yarn.lock
 /**/__pycache__
 /**/.DS_STORE

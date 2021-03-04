@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Django REST with React</title>
-</head>
-<body>
-<div id="app">
-    <!-- React will load here -->
-</div>
-</body>
 {% load static %}
-<script src="{% static "frontend/main.js" %}"></script>
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Django REST with React</title>
+    <link type="text/css" rel="stylesheet" href="{% static "global.css" %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+  <script src="{% static "frontend/main.js" %}"></script>
 </html>
