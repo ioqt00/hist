@@ -1,2 +1,6 @@
-import App from './components/App'
-import mapboxStyle from 'mapbox-gl/dist/mapbox-gl.css'
+import React from 'react'
+import { render } from 'react-dom'
+import { Application } from './components/application'
+
+const container = document.getElementById('app')
+render(<Application />, container)
