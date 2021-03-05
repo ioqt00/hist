@@ -9,8 +9,6 @@ class App extends Component {
 		super(props)
 		this.state = {
 			data: [],
-			loaded: false,	
-			placeholder: 'Loading',
 			lng: 5,
 			lat: 34,
 			zoom: 2
@@ -27,8 +25,17 @@ class App extends Component {
 			center: [this.state.lng, this.state.lat],
 			zoom: this.state.zoom,
 		})
+	}
 
-		fetch('api/docs')
+	search (query) {
+		if (query.length === 0) {
+			this.setState({
+				data: []
+			})
+			return
+		}
+
+		fetch(`api/docs?search=${query}`)
 			.then(response => {
 				if(response.status > 400) {
 					return this.setState(() => {
@@ -38,11 +45,8 @@ class App extends Component {
 				return response.json()
 			})
 			.then(data => {
-				this.setState(() => {
-					return {
-						data,
-						loaded: true
-					}
+				this.setState({
+					data: data
 				}) 
 			})
 	}
@@ -51,9 +55,18 @@ class App extends Component {
 		return (
 			<>
 				<div className="content-container">
-					<div className="search">
-						<input type="text" className="search__input" placeholder="Search for any article"></input>
-						<i className="material-icons-round search__icon">search</i>
+					<div className="search-container">
+						<div className="search">
+							<input type="text" className="search__input" placeholder="Search for any article" onChange={e => this.search(e.target.value)}></input>
+							<i className="material-icons-round search__icon">search</i>
+						</div>
+						{this.state.data.length !== 0 &&
+							<div className="result-container">
+								{this.state.data.map(item => {
+									return <div className="result">{item.title}, {item.place}</div>
+								})}
+							</div>
+						}
 					</div>
 				</div>
 				<div ref={el => this.mapContainer = el} className="mapContainer"></div>
