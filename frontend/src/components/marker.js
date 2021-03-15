@@ -12,7 +12,8 @@ export class Marker extends React.Component {
         this.state = {
             location: location,
             latitude: latitude,
-            longitude: longitude
+            longitude: longitude,
+            tooltipVisible: false,
         }
 
     }
@@ -36,7 +37,16 @@ export class Marker extends React.Component {
         if (this.state.latitude && this.state.longitude) {
             return (
                 <ReactMapGLMarker {...this.props} latitude={this.state.latitude} longitude={this.state.longitude}>
-                    <div className="pin"></div>
+                    <div className="pin" 
+                        onMouseEnter={() => this.setState({ tooltipVisible: true })}
+                        onMouseLeave={() => this.setState({ tooltipVisible: false })}
+                        onTouchStart={() => this.setState({ tooltipVisible: true })}>
+                            {this.state.tooltipVisible &&
+                                <div className="marker-popup">
+                                    {this.props.tooltipContent}
+                                </div> 
+                            }
+                        </div>
                 </ReactMapGLMarker>
             )
         }

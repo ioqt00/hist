@@ -30,7 +30,10 @@ export class Application extends React.Component {
 				</div>
 				<Map>
 					{this.state.selectedArticles.map(article => {
-						return <Marker location={article.place}></Marker>
+						return <Marker 
+							location={article.place} 
+							tooltipContent={article.content}>
+						</Marker>
 					})}
 				</Map>
 			</>

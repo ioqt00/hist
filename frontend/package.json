@@ -13,6 +13,7 @@
   "dependencies": {
     "mapbox-gl": "2.1.1",
     "react-map-gl": "^6.1.10",
+    "react-touch-events": "^3.0.0",
     "url-loader": "^4.1.1"
   },
   "devDependencies": {

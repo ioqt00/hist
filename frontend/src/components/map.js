@@ -26,7 +26,7 @@ export class Map extends React.Component {
                 {...this.state.viewport}
                 mapStyle="mapbox://styles/mapbox/dark-v9"
                 mapboxApiAccessToken={config.mapboxApiKey}
-                onViewportChange={nextViewport => this.setState({viewport: nextViewport})}>
+                onViewportChange={nextViewport => this.setState({ viewport: { ...nextViewport, width: '100%', height: '100%' }})}>
                     {this.props.children}
             </ReactMapGL>
         )
