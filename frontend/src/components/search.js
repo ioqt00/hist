@@ -5,6 +5,9 @@ export class Search extends React.Component {
 
     constructor (props) {
         super(props)
+
+        this.onArticleSelect = props.onArticleSelect ?? (() => {})
+
         this.state = {
             results: []
         }
@@ -44,7 +47,9 @@ export class Search extends React.Component {
                 {this.state.results.length !== 0 &&
                     <div className="result-container">
                         {this.state.results.map(item => {
-                            return <div className="result">{item.title}, {item.place}</div>
+                            return <div className="result" onClick={event => this.onArticleSelect(item)}>
+                                {item.title}, {item.place}
+                            </div>
                         })}
                     </div>
                 }

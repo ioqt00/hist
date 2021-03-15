@@ -1,33 +1,34 @@
 import React from 'react'
-import Mapbox from 'mapbox-gl'
-import mapboxStyle from 'mapbox-gl/dist/mapbox-gl.css'
+import ReactMapGL from 'react-map-gl'
 import './map.css'
+import config from './config.json'
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 export class Map extends React.Component {
 
     constructor (props) {
         super(props)
+
         this.state = {
-			lng: 5,
-			lat: 34,
-			zoom: 2
+			viewport: {
+                width: '100%',
+                height: '100%',
+                latitude: 46,
+                longitude: 2,
+                zoom: 4
+            } 
 		}
-    }
-
-    componentDidMount () {
-        Mapbox.accessToken = 'pk.eyJ1IjoiZWNvbGllciIsImEiOiJjazI1NzZ3ZmExM3FjM2JtenV4Mnh3cDRrIn0.mcsGHcjg39qS96guD20ayg'
-
-		const map = new Mapbox.Map({
-			container: this.mapContainer,
-			style: 'mapbox://styles/mapbox/streets-v11',
-			center: [this.state.lng, this.state.lat],
-			zoom: this.state.zoom,
-		})
     }
 
     render () {
         return (
-            <div ref={el => this.mapContainer = el} className="map-container"></div>
+            <ReactMapGL 
+                {...this.state.viewport}
+                mapStyle="mapbox://styles/mapbox/dark-v9"
+                mapboxApiAccessToken={config.mapboxApiKey}
+                onViewportChange={nextViewport => this.setState({viewport: nextViewport})}>
+                    {this.props.children}
+            </ReactMapGL>
         )
     }
 }
