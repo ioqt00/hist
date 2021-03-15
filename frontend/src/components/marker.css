@@ -11,14 +11,22 @@
 
 .marker-popup {
     display: inline-block;
-    position: absolute;
-    bottom: 32pt;
-    left: -25vw;
-    width: 75vw;
     background-color: white;
     padding: 9pt;
     border-radius: 6pt;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    max-height: 25vh;
     overflow-y: scroll;
+    bottom: 9pt;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.popup-container {
+    display: inline-block;
+    position: absolute;
+    bottom: 100%;
+    left: -25vw;
+    width: 75vw;
+    height: 25vh;
 }

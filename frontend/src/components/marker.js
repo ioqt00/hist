@@ -42,9 +42,11 @@ export class Marker extends React.Component {
                         onMouseLeave={() => this.setState({ tooltipVisible: false })}
                         onTouchStart={() => this.setState({ tooltipVisible: true })}>
                             {this.state.tooltipVisible &&
-                                <div className="marker-popup">
-                                    {this.props.tooltipContent}
-                                </div> 
+                                <div className="popup-container">
+                                    <div className="marker-popup">
+                                        {this.props.tooltipContent}
+                                    </div>
+                                </div>
                             }
                         </div>
                 </ReactMapGLMarker>
